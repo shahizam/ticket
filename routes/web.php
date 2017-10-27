@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); })->name('root');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('new_ticket', 'TicketsController@create')->name('create_ticket');
+
 Route::post('new_ticket', 'TicketsController@store')->name('store_ticket');
 
 

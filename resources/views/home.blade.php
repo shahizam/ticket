@@ -15,6 +15,7 @@
                     @endif
 
                     You are logged in!
+                    <li><a href="{{ route('create_ticket') }}">Report a problem</a></li>
                 </div>
             </div>
         </div>

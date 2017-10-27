@@ -2,7 +2,8 @@
 namespace App\Mailers;
 
 use App\Ticket;
-use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Mail\Mailer;
+//use Illuminate\Contracts\Mail\Mailer;
 
 class AppMailer {
 	protected $mailer;
@@ -25,6 +26,16 @@ class AppMailer {
 		$this->view = 'emails.ticket_info';
 		$this->data = compact('user', 'ticket');
 
-		return $this->deliver();
+		return $this->hantar();
+	}
+
+	public function hantar()
+	{
+		$this->mailer->send($this->view, $this->data, 
+			function($message) { 
+				$message->from($this->fromAddress, $this->fromName)
+						->to($this->to)->subject($this->subject);
+			}
+		);
 	}
 }
