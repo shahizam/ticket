@@ -52,3 +52,11 @@ $table->integer('is_admin')->unsigned()->default(0);
 13. Manually populate categories table using tinker
 
 14. make TicketsController for opening ticket logic
+
+15. make AppMailer
+
+16. Displaying user ticket
+
+17. Displaying selected user ticket
+
+18. Add show method to TicketsController

@@ -21,5 +21,6 @@ Route::get('new_ticket', 'TicketsController@create')->name('create_ticket');
 
 Route::post('new_ticket', 'TicketsController@store')->name('store_ticket');
 
-Route::get('my_ticket', 'TicketsController@userTickets')->name('user_ticket');
+Route::get('tickets', 'TicketsController@userTickets')->name('user_tickets');
 
+Route::get('tickets/{ticket_id}', 'TicketsController@selectedTicket')->name('selected_ticket');
