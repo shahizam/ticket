@@ -15,7 +15,8 @@
                     @endif
 
                     You are logged in!
-                    <li><a href="{{ route('create_ticket') }}">Report a problem</a></li>
+                    <li><a href="{{ route('create_ticket') }}">Report A Problem</a></li>
+                    <li><a href="{{ route('user_tickets') }}">Show Reported Problems</a></li>
                 </div>
             </div>
         </div>

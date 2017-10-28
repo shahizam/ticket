@@ -3,7 +3,7 @@
 @section('title', 'My Tickets')
 
 @section('content')
-	<div class="row>"
+	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="panel-body">
-					@ if($tickets->isEmpty())
+					@if ($tickets->isEmpty())
 						<p> You have not create any ticket. </p>
 					@else
 						<table class="table">
@@ -31,7 +31,7 @@
 												@if ($category->id === $ticket->category_id)
 													{{ $category->name }}
 												@endif
-											#endforeach
+											@endforeach
 										</td>
 										<td>
 											<a href="{{ url('ticket/'. $ticket->ticket_id) }}">
@@ -40,9 +40,9 @@
 										</td>
 										<td>
 											@if ($ticket->status === 'Open')
-												<span class="label label-success">{{ $tiket->status }}</span>
+												<span class="label label-success">{{ $ticket->status }}</span>
 											@else
-												<span class="label label-danger">{{ $tiket->status }}</span>
+												<span class="label label-danger">{{ $ticket->status }}</span>
 											@endif
 										</td>
 										<td> {{ $ticket->updated_at }}</td>
@@ -50,12 +50,12 @@
 								@endforeach
 							</tbody>
 						</table>
-						{{ $ticket->render() }}
+						{{  $tickets->render() }}
 					@endif
 				</div>
 			</div>
 		</div>
-	</
+	</div>	
 @endsection
 
 

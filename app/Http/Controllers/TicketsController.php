@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\User;
 use App\Ticket;
+use App\Category;
 use App\Mailers\AppMailer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -41,6 +42,14 @@ class TicketsController extends Controller
 		$mailer->sendTicketInformation(Auth::user(), $ticket);
 
 		return redirect()->back()->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
+	}
+
+	public function userTickets()
+	{
+		$tickets = Ticket::where('user_id', Auth::user()->id)->paginate(5);
+		$categories = Category::all();
+
+		return view('tickets.user_tickets', compact('tickets', 'categories'));
 	}
 
 }
