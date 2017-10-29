@@ -24,3 +24,5 @@ Route::post('new_ticket', 'TicketsController@store')->name('store_ticket');
 Route::get('tickets', 'TicketsController@userTickets')->name('user_tickets');
 
 Route::get('tickets/{ticket_id}', 'TicketsController@selectedTicket')->name('selected_ticket');
+
+Route::post('comment', 'CommentsController@postComment')->name('user_comment');
